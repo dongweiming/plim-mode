@@ -67,7 +67,7 @@ text nested beneath them.")
 (defun plim-nested-re (re)
   (concat "^\\( *\\)" re "\n\\(\\(\\1 .*\\)\n\\)*"))
 
-(defvar html-tags
+(defvar plim-html-tags
   '("a" "abbr" "acronym" "address" "applet" "area" "article" "aside"
     "audio" "b" "base" "basefont" "bdo" "big" "blockquote" "body"
     "br" "button" "canvas" "caption" "center" "cite" "code" "col"
@@ -83,7 +83,7 @@ text nested beneath them.")
     "th" "thead" "time" "title" "tr" "tt" "u" "ul" "var" "video" "xmp")
   "A list of all valid HTML4/5 tag names.")
 
-(defvar html-tags-re (concat "^ *\\(" (regexp-opt html-tags 'words) "\/?\\)"))
+(defvar plim-html-tags-re (concat "^ *\\(" (regexp-opt plim-html-tags 'words) "\/?\\)"))
 
 (defconst plim-font-lock-keywords
   `(;; comment block
@@ -108,7 +108,7 @@ text nested beneath them.")
     ("^ *[a-z0-9_#-]*\\(\\(\\.[a-z0-9_-]+\/?\\)+\\)"
      1 font-lock-type-face)
     ;; tag
-    (,html-tags-re
+    (,plim-html-tags-re
      1 font-lock-function-name-face)
     ;; doctype
     ("^\\(doctype .*$\\)"
